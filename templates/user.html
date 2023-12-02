@@ -1,0 +1,183 @@
+{% extends "layout_dash.html" %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block user %}active{% endblock %}
+
+{% block body %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Add Pet</h5>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="{{ url_for('submit_dispenser') }}">
+            {{ form.hidden_tag() }}
+
+            <div class="row">
+              <div class="col-md-7 pr-md-1">
+                <div class="form-group">
+                  <label>Pet Name</label>
+                  {{ form.name(class="form-control", placeholder="name") }}
+                </div>
+              </div>
+              <div class="col-md-3 pl-md-1">
+                <div class="form-group">
+                  <label>Age</label>
+                  {{ form.age(class="form-control") }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label>Species</label>
+                  {{ form.species(class="form-control") }}
+                </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Breed</label>
+                  {{ form.breed(class="form-control") }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Location name</label>
+                  {{ form.location_name(class="form-control", placeholder="Name of location") }}
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label>Latitude</label>
+                  {{ form.latitude(class="form-control", placeholder="Ex: 12.1346") }}
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label>Longitude</label>
+                  {{ form.longitude(class="form-control", placeholder="Ex: -86.2469") }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label>City</label>
+                  {{ form.city(class="form-control", placeholder="City") }}
+                </div>
+              </div>
+              <div class="col-md-5 pr-md-1">
+                <div class="form-group">
+                  <label>Country</label>
+                  {{ form.country(class="form-control", placeholder="Country") }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Code of machine</label>
+                {{ form.code(class="form-control") }}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{ form.submit(class="btn btn-fill btn-primary") }}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-user">
+        <div class="card-body">
+          <p class="card-text">
+          <div class="author">
+            <div class="block block-one"></div>
+            <div class="block block-two"></div>
+            <div class="block block-three"></div>
+            <div class="block block-four"></div>
+            <a href="javascript:void(0)">
+              <img class="avatar" src="/static/uploads/profile_pictures/{{links.profile_picture}}" alt="...">
+              <h5 class="title">{{user.username}}</h5>
+            </a>
+            <p class="description">
+              {% if user.username == "Disa" %}
+              Ceo/Co-Founder
+              {% else %}
+              User/Pet´s care
+              {% endif %}
+            </p>
+          </div>
+          </p>
+          <div class="card-description">
+            {{user.description}}
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="button-container">
+            <button href="{{user.facebook}}" class="btn btn-icon btn-round btn-facebook">
+              <i class="fab fa-facebook"></i>
+            </button>
+            <button href="{{user.twitter}}" class="btn btn-icon btn-round btn-twitter">
+              <i class="fab fa-twitter"></i>
+            </button>
+            <button href="mailto:{{user.email}}" class="btn btn-icon btn-round btn-google">
+              <i class="fab fa-google-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> My Pet's</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Age
+                </th>
+                <th>
+                  loaction
+                </th>
+                <th class="text-center">
+                  Food
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for pet in pets %}
+              <tr>
+                <td>{{ pet[0] }}</td>
+                <td>{{ pet[1] }}</td>
+                <td>{{ location[loop.index0] }}</td>
+                <td class="text-center">True</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

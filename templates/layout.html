@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html  data-wf-page="63d81305e2cf1dd3cb655e95" data-wf-site="63d81305e2cf1d1625655e94">
+  <head>
+    <meta charset="utf-8" /><title>HappyTails</title><meta content="Protection and care of your pets' food." name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/css/technologia-solutions-llc.webflow.469de2439.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <link type="image/png" sizes="16x16" rel="icon" href="/static/img/cafe sin fondo bonito.png">
+    <script type="text/javascript">
+      WebFont.load({ google: { families: ['Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic', 'Inter:100,200,300,regular,500,600,700,800,900'] } })
+    </script>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = ' w-mod-'
+        ;(n.className += t + 'js'), ('ontouchstart' in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + 'touch')
+      })(window, document)
+    </script>
+
+   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K796110MD0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      
+      gtag('config', 'G-K796110MD0')
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 12px;
+        height: 40px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: black;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(rgb(236 0 100), rgb(16 10 255), rgb(78 2 255));
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+      <div class="container-large w-container">
+        <div class="nav-flex-wrapper">
+          <a href="/" aria-current="page" class="brand-logo w-nav-brand w--current"><img src="/static/img/cafe sin fondo bonito.png" loading="lazy" alt="" height="45px" /></a><nav role="navigation" class="nav-menu w-nav-menu">
+            <a href="{{url_for("index")}}" class="nav-link w-nav-link">Home</a>
+            {% if not session.user_id %}
+            <a href="{{url_for("login")}}" class="nav-link w-nav-link">login</a><a href="{{url_for("register")}}" class="nav-link w-nav-link">register</a><a href="{{url_for("about")}}" class="nav-link w-nav-link">About Us</a>
+            {% else %}
+            <a href="{{url_for("logout")}}" class="nav-link w-nav-link">Logout</a>
+            {% endif %}
+            <a href="{{url_for("dashboard")}}" class="nav-link cta w-nav-link">Dashboard</a>
+          </nav>
+          <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% block body %}{% endblock %}
+
+
+      <div class="line-top m-top" id="touchhh"></div>
+      <section class="uui-section_contact05">
+        <div class="uui-page-padding-3">
+          <div id="contact" class="uui-padding-vertical-xhuge-3">
+            <div class="w-layout-grid uui-contact05_component">
+              <div class="uui-contact05_content">
+
+
+                <h2 class="heading-47">Get in touch!</h2><div class="sub-text">Get in touch with us and improve the quality of life for your pets; they deserve to be loved too.</div>
+                <div class="uui-contact05_form-wrapper w-form">
+
+
+                  <form id="" data-name="Contact 05 form" method="post" class="uui-contact05_form" action="">
+                    <div class="uui-form-field-wrapper">
+                      <label for="Contact-05-name" class="uui-field-label">Name</label><input type="text" class="uui-form_input user w-input" maxlength="256" name="Contact-05-name" placeholder="Your full name" id="name_form" required="" />
+                    </div>
+                    <div class="uui-form-field-wrapper">
+                      <label for="Contact-05-email" class="uui-field-label">Email</label><input type="email" class="uui-form_input mail w-input" maxlength="256" name="Contact-05-email"  placeholder="you@company.com" id="email_form" required="" />
+                    </div>
+
+                   
+
+                    <div class="uui-form-field-wrapper">
+                      <label for="Contact-05-message" class="uui-field-label">Mensaje</label><textarea id="msg_form" name="Contact-05-message" maxlength="5000" placeholder="Menssage description here..." required="" class="uui-form_input text-area w-input"></textarea>
+                    </div><label id="Contact05-checkbox" class="w-checkbox uui-form-checkbox">
+                      
+                     
+                    </label><div id="w-node-_5be81d18-565c-e851-d483-f296c3a09490-cb655e95" class="uui-form-button-wrapper">
+                      <input type="button" onclick="from()" placeholder="Send"  data-wait="Please wait..." id="w-node-_5be81d18-565c-e851-d483-f296c3a09491-cb655e95" class="uui-button w-button" />
+                    </div>
+                  </form>
+                  <div class="success-message w-form-done">
+                    <div class="success-text">Thank you! Your submission has been received!</div>
+                  </div>
+                  <div class="error-message w-form-fail">
+                    <div class="error-text">Oops! Something went wrong while submitting the form.</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="uui-contact05_image-wrapper">
+                <img src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63da64b18164ba5734adce16_Group%20427321643%20(1).png" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 97vw, (max-width: 991px) 46vw, 49vw" srcset="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63da64b18164ba5734adce16_Group%20427321643%20(1)-p-500.png 500w, https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63da64b18164ba5734adce16_Group%20427321643%20(1)-p-800.png 800w, https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63da64b18164ba5734adce16_Group%20427321643%20(1)-p-1080.png 1080w, https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63da64b18164ba5734adce16_Group%20427321643%20(1).png 1944w" alt="Contact image" class="uui-contact05_image" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="footer-section">
+      <div class="container">
+        <div class="inner-body">
+          <div class="footer-grid">
+          <br>
+            <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e87-1adc2e80" class="links-block">
+              <a href="#about" class="link-3 ebold">About</a><div class="socials">
+                <a href="https://www.facebook.com/david.knauth.7?mibextid=ZbWKwL" target="_blank" class="icon-link w-inline-block"></a><a href="https://github.com/Disa11/" target="_blank" class=" w-inline-block"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+              </div>
+            </div>
+            <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e95-1adc2e80" class="logo-block">
+              <div class="html-embed w-embed w-script">
+                <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script> <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e84-1adc2e80" class="logo-block">
+                
+                  <a href="/" aria-current="page" class="brand-logo w-inline-block w--current"><img src="/static/img/cafe sin fondo bonito.png" /></a>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e98-1adc2e80" class="links-block grid">
+              <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e99-1adc2e80" class="flex-address">
+                <img src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63db6c6cb0ab406190a6e3da_Group%20(1).svg" loading="lazy" alt="" /><div class="text-block-3 ebold">Mon-Fri: 7.00am - 12am</div>
+              </div>
+              <div id="w-node-_72178271-5259-5da6-2420-43d81adc2e9d-1adc2e80" class="flex-address">
+                <img src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63db6cdb28204d5664113fb4_Group%20(2).svg" loading="lazy" alt="" /><div class="text-block-3 ebold">Granada, Nicaragua</div>
+              </div><a href="tel:+13074149167" class="flex-address w-inline-block"><img src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63db6cdc8cd2e40506cc4f9b_Group%20(3).svg" loading="lazy" alt="" /><div class="text-block-3 ebold">+505 82017614 </div></a><a href="mailto:dkanuth@code-fu.net.ni" class="flex-address w-inline-block"><img src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/63db6cdeb0ab407b6ca6edb7_letter%201.svg" loading="lazy" alt="" /><div class="text-block-3 ebold">dknauth@code-fu.net.ni</div></a>
+            </div>
+            <div id="w-node-_72178271-5259-5da6-2420-43d81adc2ea9-1adc2e80" class="div-block-4">
+              <div class="text-block-4">Powered ⚡ by Disa | Since 2021</div>
+            </div>
+            <div id="w-node-_72178271-5259-5da6-2420-43d81adc2eac-1adc2e80">
+              <div class="socials">
+                <a href="#" class="link-3">Privacy Policy</a><div class="sep-line"></div><a href="#" class="link-3">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63d81305e2cf1d1625655e94" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://uploads-ssl.webflow.com/63d81305e2cf1d1625655e94/js/webflow.f8e8ce575.js" type="text/javascript"></script>
+
+    <script>
+      ;(function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            ;(h.hj.q = h.hj.q || []).push(arguments)
+          }
+        h._hjSettings = { hjid: 3186354, hjsv: 6 }
+        a = o.getElementsByTagName('head')[0]
+        r = o.createElement('script')
+        r.async = 1
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+        a.appendChild(r)
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+    </script>
+
+    <script>
+      window.intercomSettings = {
+        api_base: 'https://api-iam.intercom.io',
+        app_id: 'dpn21rv4'
+      }
+    </script>
+
+    <script src="/static/socket.io.min.js"></script>
+
+    <script>
+      
+      const socket = io.connect('http://' + document.domain + ':' + location.port);
+
+      function from() {
+        const name = document.getElementById('name_form').value;
+        const mail = document.getElementById('email_form').value;
+        const msg = document.getElementById('msg_form').value;
+
+        socket.emit('contact', {name, mail, msg});
+      }
+
+      socket.on('contact', (data) => {
+        alert(`${data["status"]}`);
+      });
+    </script>
+
+    <script>
+      (function () {
+        var w = window
+        var ic = w.Intercom
+        if (typeof ic === 'function') {
+          ic('reattach_activator')
+          ic('update', w.intercomSettings)
+        } else {
+          var d = document
+          var i = function () {
+            i.c(arguments)
+          }
+          i.q = []
+          i.c = function (args) {
+            i.q.push(args)
+          }
+          w.Intercom = i
+          var l = function () {
+            var s = d.createElement('script')
+            s.type = 'text/javascript'
+            s.async = true
+            s.src = 'https://widget.intercom.io/widget/dpn21rv4'
+            var x = d.getElementsByTagName('script')[0]
+            x.parentNode.insertBefore(s, x)
+          }
+          if (document.readyState === 'complete') {
+            l()
+          } else if (w.attachEvent) {
+            w.attachEvent('onload', l)
+          } else {
+            w.addEventListener('load', l, false)
+          }
+        }
+      })()
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+
+    <script>
+      var typed = new Typed('.typed-words', {
+        strings: ['Pets', 'Scalable', 'Protection', 'Secure', 'IoT', 'Web50', 'Cats', 'Python', 'Arduino'],
+        typeSpeed: 80,
+        backSpeed: 100,
+        backDelay: 1200,
+        startDelay: 0,
+        loop: true,
+        showCursor: false,
+        cursorChar: '_',
+        attr: null
+      })
+      
+      $(document).ready(function () {
+        var Project_Size = 0
+        var complexity = 0
+        var Speed = 0
+        var totalValFrom = 0
+        var totalValTo = 0
+        var selectedService = 'Select a service'
+      
+        $('input[name=complexity]').on('change', function () {
+          complexity = $(this).data('value')
+          calculatefn()
+        })
+        $('input[name=Speed]').on('change', function () {
+          Speed = $(this).data('value')
+          calculatefn()
+        })
+        $('input[name=Project-Size]').on('change', function () {
+          Project_Size = $(this).data('value')
+          calculatefn()
+        })
+      
+        $('select').on('change', function (e) {
+          var optionSelected = $('option:selected', this)
+          var valueSelected = this.value
+          selectedService = valueSelected
+          populateComments()
+        })
+      
+        $('.select-service').on('click', function () {
+          var service = $(this).text()
+          var selected_val = $(this).data('service')
+          $('.selected-service').text(service).attr('selected_service', selected_val)
+        })
+      
+        function populateComments() {
+          if (selectedService === 'Select a service') {
+            document.getElementById('comments').textContent = ''
+            document.getElementById('price-cta').style.display = 'none'
+            return
+          }
+          let template = `These prices are estimates on basis of our assumptions, If you want to discuss about ${selectedService} and how our team of experts can provide the best solution then schedule a call right now. We never charge for a short discovery call and helping you out to decide what is best for you.`
+          document.getElementById('comments').textContent = template
+          document.getElementById('price-cta').style.display = 'inline-block'
+        }
+      
+        function calculatefn() {
+          totalValFrom = Project_Size + complexity + Speed
+          totalValTo = Math.ceil(totalValFrom * 0.5 + totalValFrom)
+          $('#totalValFrom').text('$' + totalValFrom + 'K')
+          $('#totalValTo').text('$' + totalValTo + 'K')
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout_dash.html" %}
+
+{% block title %}Video Streaming{% endblock  %}
+
+{% block stream %}active{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header">
+            Video Stream
+          </div>
+          <div class="card-body">
+            <img src="http://192.168.0.15:8080/?action=stream" alt="Mascota Stream">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock  %}

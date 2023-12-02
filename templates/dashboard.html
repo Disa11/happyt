@@ -1,0 +1,174 @@
+{% extends "layout_dash.html" %}
+
+{% block title %}Dashboard{% endblock  %}
+
+{% block dash %}active{% endblock %}
+
+{% block body %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Total Shipments</h5>
+                <h2 class="card-title">Temperature</h2>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartBig1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Total Shipments</h5>
+            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLinePurple"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Daily Sales</h5>
+            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="CountryChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Completed Tasks</h5>
+            <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLineGreen"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+    socket.emit('start_background_task');
+
+    // Agrega esta función para inicializar el gráfico
+function initChart(chartId, data, label, color) {
+  var ctx = document.getElementById(chartId).getContext("2d");
+
+  var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  gradientStroke.addColorStop(1, color);
+  gradientStroke.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+  gradientStroke.addColorStop(0, 'rgba(119,52,169,0)');
+
+  var config = {
+      type: 'line',
+      data: {
+          labels: [],
+          datasets: [{
+              label: label,
+              fill: true,
+              backgroundColor: gradientStroke,
+              borderColor: color,
+              borderWidth: 2,
+              borderDash: [],
+              borderDashOffset: 0.0,
+              pointBackgroundColor: color,
+              pointBorderColor: 'rgba(255,255,255,0)',
+              pointHoverBackgroundColor: color,
+              pointBorderWidth: 20,
+              pointHoverRadius: 4,
+              pointHoverBorderWidth: 15,
+              pointRadius: 4,
+              data: [],
+          }]
+      },
+      options: {
+          maintainAspectRatio: false,
+          legend: {
+              display: false
+          },
+          tooltips: {
+              backgroundColor: '#f5f5f5',
+              titleFontColor: '#333',
+              bodyFontColor: '#666',
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+          },
+          responsive: true,
+          scales: {
+              yAxes: [{
+                  gridLines: {
+                      drawBorder: false,
+                      color: 'rgba(29,140,248,0.1)',
+                      zeroLineColor: "transparent",
+                  },
+                  ticks: {
+                      padding: 20,
+                      fontColor: "#9e9e9e"
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      drawBorder: false,
+                      color: 'rgba(29,140,248,0.1)',
+                      zeroLineColor: "transparent",
+                  },
+                  ticks: {
+                      padding: 20,
+                      fontColor: "#9e9e9e"
+                  }
+              }]
+          }
+      }
+  };
+
+  window[chartId] = new Chart(ctx, config);
+}
+
+// En tu función de inicialización, llama a la función para cada gráfico que deseas mostrar
+initChart('chartBig1', [], 'My First dataset', 'rgba(72,72,176,0.1)');
+
+// En tu función de escucha de WebSocket, actualiza los datos en el gráfico correspondiente
+socket.on('show_data', function(data) {
+  var time = data.time;
+  var temperature = data.temperature;
+
+  // Actualiza el gráfico chartBig1
+  window['chartBig1'].data.labels.push(time);
+  window['chartBig1'].data.datasets[0].data.push(temperature);
+  window['chartBig1'].update();
+});
+
+  </script>
+{% endblock %}
